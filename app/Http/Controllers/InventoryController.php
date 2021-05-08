@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Inventory;
 use App\Http\Response\ResponseJson;
 
 class AdminController extends Controller
@@ -10,32 +10,32 @@ class AdminController extends Controller
     use ResponseJson;
     public function index()
     {
-        return view('api/User');
+        return view('api/Inventory');
     }
     public function create(Request $request){
         $insert=$request->all();
-        Admin::create($insert);
+        Inventory::create($insert);
         return json_encode(['code'=>0,'msg'=>'success','data'=>$insert]);
     }
     public function get(){
-        $admins =Admin::where('id', 1)
+        $Inventorys =Inventory::where('id', 1)
                ->orderBy('id', 'desc')
                ->take(3)
                ->get();
-        foreach ($admins as $admin)
+        foreach ($Inventorys as $Inventory)
         {
-            echo $admin->id;
+            echo $Inventory->id;
         }
     }
     public function updata(){
-        $admins = Admin::all();
-        $admins = Admin::where('id',123)->find(2);
-        $admins->id = '12';
-        $admins->save();     
+        $Inventorys = Inventory::all();
+        $Inventorys = Inventory::where('id',123)->find(2);
+        $Inventorys->id = '12';
+        $Inventorys->save();     
     }
     public function delete(){
-        $admins = Admin::all();
-        $admins = Admin::find(1);
-        $admins->delete();  
+        $Inventorys = Inventory::all();
+        $Inventorys = Inventory::find(1);
+        $Inventorys->delete();  
     }
 }

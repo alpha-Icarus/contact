@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Admin;
 use App\Http\Response\ResponseJson;
 
 class AdminController extends Controller
@@ -10,7 +10,7 @@ class AdminController extends Controller
     use ResponseJson;
     public function index()
     {
-        return view('api/User');
+        return view('api/login');
     }
     public function create(Request $request){
         $insert=$request->all();

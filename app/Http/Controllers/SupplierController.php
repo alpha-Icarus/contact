@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Supplier;
 use App\Http\Response\ResponseJson;
 
 class AdminController extends Controller
@@ -10,32 +10,32 @@ class AdminController extends Controller
     use ResponseJson;
     public function index()
     {
-        return view('api/User');
+        return view('api/Supplier');
     }
     public function create(Request $request){
         $insert=$request->all();
-        Admin::create($insert);
+        Supplier::create($insert);
         return json_encode(['code'=>0,'msg'=>'success','data'=>$insert]);
     }
     public function get(){
-        $admins =Admin::where('id', 1)
+        $Suppliers =Supplier::where('id', 1)
                ->orderBy('id', 'desc')
                ->take(3)
                ->get();
-        foreach ($admins as $admin)
+        foreach ($Suppliers as $Supplier)
         {
-            echo $admin->id;
+            echo $Supplier->id;
         }
     }
     public function updata(){
-        $admins = Admin::all();
-        $admins = Admin::where('id',123)->find(2);
-        $admins->id = '12';
-        $admins->save();     
+        $Suppliers = Supplier::all();
+        $Suppliers = Supplier::where('id',123)->find(2);
+        $Suppliers->id = '12';
+        $Suppliers->save();     
     }
     public function delete(){
-        $admins = Admin::all();
-        $admins = Admin::find(1);
-        $admins->delete();  
+        $Suppliers = Supplier::all();
+        $Suppliers = Supplier::find(1);
+        $Suppliers->delete();  
     }
 }
