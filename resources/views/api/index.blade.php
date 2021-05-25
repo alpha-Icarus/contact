@@ -7,10 +7,13 @@
 </head>
 <body>
     <form id="form" method="post">
-        姓名 <input type="text" name="full_name" require>
-        工号 <input type="text" name="employee_number" require>
-        公司 <input type="text" name="company" require>
-        邮箱 <input type="text" name="email" require>
+        地区 <input type="text" name="region" >
+        公司名 <input type="text" name="Cname" >
+        职能 <input type="text" name="position" >
+        地址 <input type="text" name="addr" >
+        邮箱 <input type="text" name="email" >
+        电话 <input type="text" name="tel" >
+        传真 <input type="text" name="fax" >
         <input type="button" id="button" value="提交">
     </form>
     <script src='https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js'></script>
